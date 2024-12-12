@@ -192,6 +192,7 @@ def fill_form(data):
 
 
 if __name__ == "__main__":
+    subprocess.call(["python3","signup.py"])
     json_file_path = "user_data.json"
     form_data = load_data(json_file_path)
 
