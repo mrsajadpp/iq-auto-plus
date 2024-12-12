@@ -78,8 +78,8 @@ def generate_fake_user():
         "email": email,
         "dob": dob,
         "roleObj": {
-            "roleId": "670e850968ede49b0fae3998",  # Static value, replace if dynamic
-            "roleName": "Students"
+            "roleId": "670e850968ede49b0fae399a",  # Static value, replace if dynamic
+            "roleName": "Parents"
         }
     }
     return user_data
@@ -96,7 +96,7 @@ def signup_user(user_data):
 
 # Main function
 def main():
-    total_users = 400
+    total_users = 10
     users_list = []  # List to store user email and DOB
 
     for count in range(1, total_users + 1):
