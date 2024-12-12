@@ -106,7 +106,7 @@ def fill_form(data):
         start_quiz_button = driver.find_element(By.CSS_SELECTOR, ".button-container .banner-button")
         start_quiz_button.click()
 
-        time.sleep(2)
+        time.sleep(3)
 
         inputs = driver.find_elements(By.CSS_SELECTOR, ".answer-cells .answer-cell")
 
