@@ -14,15 +14,47 @@ output_file = "user_data.json"
 
 # Kerala-based first and last names
 first_names = [
-    "Abhilash", "Akhil", "Anjali", "Arya", "Arun", "Ashwin", "Athira", "Bhavana", "Chitra", "Deepa", "Devika",
-    "Ganesh", "Gautham", "Gayathri", "Harikrishnan", "Indira", "Jayasree", "Kiran", "Krishna", "Lekha", "Madhavan",
-    "Manu", "Meera", "Mohan", "Nandana", "Neha", "Radhika", "Sajan", "Santhosh", "Saritha", "Sreekumar", "Sunil",
-    "Unnikrishnan", "Vinod", "Vishnu"
+    "Abhilash", "Akhil", "Anjali", "Anju", "Arya", "Arun", "Ashwin", "Athira", "Balakrishnan", "Bhavana", 
+    "Chandran", "Chitra", "Deepak", "Deepa", "Devika", "Dinesh", "Divya", "Fathima", "Ganesh", "Gautham", 
+    "Gayathri", "Girish", "Hari", "Harikrishnan", "Haritha", "Indira", "Indrajith", "Jayasree", "Jeevan", 
+    "Jyothi", "Kalyani", "Kiran", "Krishna", "Krishnan", "Lekha", "Lijo", "Madhavi", "Madhavan", "Manoj", 
+    "Manu", "Mathew", "Meera", "Mohan", "Muralidharan", "Nandana", "Nandan", "Naveen", "Neethu", "Neha", 
+    "Nikhil", "Nimisha", "Nithin", "Padma", "Parvathy", "Pradeep", "Prakash", "Pranav", "Prasanna", 
+    "Prem", "Priya", "Radhika", "Rahul", "Rajeev", "Rajesh", "Rakesh", "Ramesh", "Ranjith", "Rekha", 
+    "Renjith", "Reshma", "Revathi", "Rohit", "Sajeev", "Sajith", "Sanal", "Sandhya", "Saranya", "Sarath", 
+    "Sathish", "Satyajith", "Seema", "Shalini", "Sharath", "Sibin", "Siddharth", "Sinu", "Sreejith", 
+    "Sreekumar", "Sreekutty", "Sreekanth", "Sreeraj", "Sreenath", "Sreesanth", "Sreekala", "Subhash", 
+    "Suma", "Suresh", "Sushma", "Swapna", "Syam", "Thara", "Uma", "Unnikrishnan", "Varsha", "Venu", 
+    "Vidya", "Vijay", "Vineeth", "Vinod", "Vishnu", "Yamuna", "Anoop", "Athul", "Arathi", "Chandrika", 
+    "Devan", "Elizbeth", "Govind", "Haridas", "Ishwar", "Jithin", "Karthik", "Lakshmi", "Malini", 
+    "Niranjan", "Rajendran", "Ramya", "Santhosh", "Shaji", "Sheeba", "Sindhu", "Suraj", "Usha", 
+    "Vijayan", "Aswin", "Anand", "Akash", "Faisal", "Jaseela", "Jesna", "Shine", "Mithun", "Roopa", 
+    "Sherin", "Shibin", "Abhirami", "Sanju", "Anitta", "Neeraj", "Sona", "Gokul", "Darshan", "Alok", 
+    "Anikha", "Nanditha", "Lakshman", "Arathi", "Siddique", "Kavya", "Ajay", "Ambili", "Kavitha", 
+    "Surya", "Ravi", "Ajith", "Maya", "Anagha", "Adarsh", "Chippy", "Devu", "Daya", "Sethu", 
+    "Narayanan", "Midhun", "Aiswarya", "Praveen", "Padmakumar", "Teena", "Archa", "Anandhu", 
+    "Keerthi", "Jithesh", "Sruthy", "Vimal", "Leela", "Femi", "Anjana", "Vipin", "Kamal", "Jayakrishnan"
 ]
+
 last_names = [
-    "Nair", "Menon", "Pillai", "Warrier", "Iyer", "Kurup", "Panicker", "Varma", "Joseph", "Mathew", "Achuthan",
-    "Antony", "Chacko", "Damodaran", "Ganapathy", "Govindan", "Hariharan", "Iyer", "Jacob", "Jayakumar", "Kartha",
-    "Krishnan", "Madhavan", "Narayanan", "Subramanian"
+    "Achuthan", "Achari", "Antony", "Appukuttan", "Balakrishnan", "Balan", "Chacko", "Chandran", "Cheeran", 
+    "Cherian", "Damodaran", "Das", "Devassy", "Devan", "Eapen", "Edathil", "Ganapathy", "Gopakumar", 
+    "Govindan", "Hariharan", "Iyer", "Jacob", "Jayakumar", "John", "Joseph", "Joy", "Kamalasanan", 
+    "Karunakaran", "Kartha", "Keshavan", "Krishnan", "Kurian", "Kuttan", "Madhavan", "Mathew", "Menon", 
+    "Moideen", "Mohan", "Mukundan", "Nambiar", "Narayanan", "Nayar", "Ninan", "Padmanabhan", 
+    "Panicker", "Pillai", "Ponnappa", "Prabhakaran", "Raghavan", "Rajagopal", "Raman", "Ravindran", 
+    "Sankaran", "Sasikumar", "Sethumadhavan", "Shenoy", "Sreekumar", "Subramanian", "Sudhakaran", 
+    "Sukumaran", "Sundaresan", "Tharakan", "Thomas", "Unnikrishnan", "Varghese", "Varma", "Vijayan", 
+    "Warrier", "Achary", "Aiyer", "Chittilappilly", "Dhanapalan", "Edachery", "Govindarajan", "Ishwaran", 
+    "Jayadevan", "Kizhakkedath", "Kollam", "Mangalassery", "Mangalathu", "Marar", "Mathewkutty", 
+    "Mathukutty", "Meledath", "Moorthi", "Nair", "Nampoothiri", "Narayanan", "Pallipparambil", 
+    "Parameswaran", "Pattathil", "Pulickal", "Radhakrishnan", "Raja", "Rajesh", "Ramachandran", 
+    "Sadasivan", "Sasidharan", "Shankar", "Shanavas", "Shekhar", "Shivaram", "Somasekharan", "Sundar", 
+    "Thangal", "Tharavadu", "Thekkedath", "Vadakkan", "Vadassery", "Vaidyanathan", "Vasudevan", 
+    "Velappan", "Velayudhan", "Venkatesh", "Vettathu", "Vishwanathan", "Yatheendra", "Abraham", 
+    "Chennithala", "Cheruvathur", "Cherukara", "Devanandan", "Devendran", "Gopalakrishnan", 
+    "Jayaram", "Kesavan", "Kumaran", "Narasimhan", "Padmanaban", "Parvathi", "Prathapan", 
+    "Ramalingam", "Rangaswamy", "Rasool", "Subrahmanian", "Sulochana", "Thankappan", "Tirunelveli"
 ]
 
 # Custom function to generate Kerala-based names
