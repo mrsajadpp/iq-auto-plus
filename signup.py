@@ -1,7 +1,7 @@
 import requests
 import json
-from faker import Faker
 import random
+from faker import Faker
 
 # Initialize Faker with Indian localization
 fake = Faker('en_IN')
@@ -12,15 +12,33 @@ api_url = "https://api.manoramaquiz.in/v1/userManagement"
 # Output file to store email and DOB
 output_file = "user_data.json"
 
-# Function to generate fake user data with custom email format
+# Kerala-based first and last names
+first_names = [
+    "Abhilash", "Akhil", "Anjali", "Arya", "Arun", "Ashwin", "Athira", "Bhavana", "Chitra", "Deepa", "Devika",
+    "Ganesh", "Gautham", "Gayathri", "Harikrishnan", "Indira", "Jayasree", "Kiran", "Krishna", "Lekha", "Madhavan",
+    "Manu", "Meera", "Mohan", "Nandana", "Neha", "Radhika", "Sajan", "Santhosh", "Saritha", "Sreekumar", "Sunil",
+    "Unnikrishnan", "Vinod", "Vishnu"
+]
+last_names = [
+    "Nair", "Menon", "Pillai", "Warrier", "Iyer", "Kurup", "Panicker", "Varma", "Joseph", "Mathew", "Achuthan",
+    "Antony", "Chacko", "Damodaran", "Ganapathy", "Govindan", "Hariharan", "Iyer", "Jacob", "Jayakumar", "Kartha",
+    "Krishnan", "Madhavan", "Narayanan", "Subramanian"
+]
+
+# Custom function to generate Kerala-based names
+def generate_kerala_name():
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+    return first_name, last_name
+
+# Function to generate fake user data with Kerala-based names
 def generate_fake_user():
-    first_name = fake.first_name()
-    last_name = fake.last_name()
+    first_name, last_name = generate_kerala_name()
     random_code = random.randint(1000, 9999)
     email = f"{first_name.lower()}{last_name.lower()}{random_code}@gmail.com"
     phone = fake.phone_number()
     dob = fake.date_of_birth(minimum_age=10, maximum_age=20).strftime("%Y-%m-%d")
-    
+
     user_data = {
         "name": f"{first_name} {last_name}",
         "schoolId": "672c44e27d4653e446a78b5c",  # Static value, replace if dynamic
@@ -48,10 +66,10 @@ def signup_user(user_data):
 def main():
     total_users = 400
     users_list = []  # List to store user email and DOB
-    
+
     for count in range(1, total_users + 1):
         user_data = generate_fake_user()
-        
+
         response_data = signup_user(user_data)
         if response_data and response_data.get('statusCode') == 201:
             print(f"Successfully signed up user {count}: {user_data['email']}")
@@ -59,11 +77,11 @@ def main():
             users_list.append({"email": user_data["email"], "dob": user_data["dob"]})
         else:
             print(f"Failed to sign up user {count}")
-        
+
         # Print progress at every 10th user
         if count % 10 == 0:
             print(f"Signup progress: {count}/{total_users} users completed.")
-    
+
     # Save all user data to JSON file as an array
     try:
         with open(output_file, "w") as f:
