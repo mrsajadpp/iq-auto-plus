@@ -2,6 +2,7 @@ import requests
 import json
 import random
 from faker import Faker
+import openpyxl
 
 # Initialize Faker with Indian localization
 fake = Faker('en_IN')
@@ -9,8 +10,8 @@ fake = Faker('en_IN')
 # API Endpoint
 api_url = "https://api.manoramaquiz.in/v1/userManagement"
 
-# Output file to store email and DOB
-output_file = "user_data.json"
+# Excel file to store user data
+excel_file = "users/twenty_user_data.xlsx"
 
 # Kerala-based first and last names
 first_names = [
@@ -62,6 +63,15 @@ roles = [
     {"roleId": "670e850968ede49b0fae399b", "roleName": "Alumni"}
 ]
 
+def convert_date(date_string):
+    try:
+        # Split the input string
+        year, month, day = date_string.split('-')
+        # Reorder to DDMMYYYY and concatenate
+        return f"{day}{month}{year}"
+    except ValueError:
+        raise ValueError("Input date string must be in YYYY-MM-DD format.")
+
 # Custom function to generate Kerala-based names
 def generate_kerala_name():
     first_name = random.choice(first_names)
@@ -82,6 +92,7 @@ def generate_fake_user():
         "phone": phone,
         "email": email,
         "dob": dob,
+        "pass": convert_date(dob),
         "roleObj": random.choice(roles)
     }
     return user_data
@@ -96,10 +107,31 @@ def signup_user(user_data):
         print(f"Error: {e}")
         return None
 
+# Function to initialize Excel sheet
+def initialize_excel():
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "User Data"
+    # Add headers
+    sheet.append(["email", "password"])
+    workbook.save(excel_file)
+
+# Function to save data to Excel
+def save_to_excel(users_list):
+    workbook = openpyxl.load_workbook(excel_file)
+    sheet = workbook.active
+
+    for user in users_list:
+        sheet.append([user["email"], convert_date(user["dob"])])
+
+    workbook.save(excel_file)
+
 # Main function
 def main():
-    total_users = 10
+    total_users = 300
     users_list = []  # List to store user email and DOB
+
+    initialize_excel()  # Prepare Excel sheet
 
     for count in range(1, total_users + 1):
         user_data = generate_fake_user()
@@ -116,13 +148,9 @@ def main():
         if count % 10 == 0:
             print(f"Signup progress: {count}/{total_users} users completed.")
 
-    # Save all user data to JSON file as an array
-    try:
-        with open(output_file, "w") as f:
-            json.dump(users_list, f, indent=4)
-        print(f"All user data saved to {output_file}")
-    except IOError as e:
-        print(f"File error: {e}")
+    # Save all user data to Excel file
+    save_to_excel(users_list)
+    print(f"All user data saved to {excel_file}")
 
 if __name__ == "__main__":
     main()
