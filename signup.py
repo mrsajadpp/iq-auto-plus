@@ -98,7 +98,7 @@ def signup_user(user_data):
 
 # Main function
 def main():
-    total_users = 10
+    total_users = 999
     users_list = []  # List to store user email and DOB
 
     for count in range(1, total_users + 1):
